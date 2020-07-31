@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Hello Android</string>
+    <string name="MainString">Main화면입니다.</string>
+    <string name="StartBtn">화면 전환</string>
+</resources>
