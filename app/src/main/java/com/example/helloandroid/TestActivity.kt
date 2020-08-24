@@ -1,5 +1,6 @@
 package com.example.helloandroid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_test.*
@@ -12,6 +13,8 @@ class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
+
+        val intent = Intent(this, ResultActiviy::class.java)
 
 
         btn_yes.setOnClickListener {
@@ -28,9 +31,33 @@ class TestActivity : AppCompatActivity() {
                     textView2.text = "No눌리고 Yes"
                     n = 6
                 }
-                else -> {
-                    textView2.text = "여기부턴 나중에 구현"
+
+                //여기부터는 결과로 이어지는 과정
+                4 -> { //질문4에서 Yes 선택 = 결과 1
+                    intent.apply{
+                        putExtra("result", 1)
+                    }
+                    startActivity(intent)
                 }
+                5 -> { //질문5에서 Yes 선택 = 결과 3
+                    intent.apply{
+                        putExtra("result", 3)
+                    }
+                    startActivity(intent)
+                }
+                6 -> { //질문6에서 Yes 선택 = 결과 5
+                    intent.apply{
+                        putExtra("result", 5)
+                    }
+                    startActivity(intent)
+                }
+                7 -> { //질문7에서 Yes 선택 = 결과 7
+                    intent.apply{
+                        putExtra("result", 7)
+                    }
+                    startActivity(intent)
+                }
+
             }
         }
 
@@ -49,8 +76,30 @@ class TestActivity : AppCompatActivity() {
                     textView2.text = "No눌리고 No"
                     n = 7
                 }
-                else -> {
-                    textView2.text = "여기부턴 나중에 구현"
+                //여기부터는 결과로 이어지는 과정
+                4 -> { //질문4에서 No 선택 = 결과 2
+                    intent.apply{
+                        putExtra("result", 2)
+                    }
+                    startActivity(intent)
+                }
+                5 -> { //질문5에서 No 선택 = 결과 4
+                    intent.apply{
+                        putExtra("result", 4)
+                    }
+                    startActivity(intent)
+                }
+                6 -> { //질문6에서 No 선택 = 결과 6
+                    intent.apply{
+                        putExtra("result", 6)
+                    }
+                    startActivity(intent)
+                }
+                7 -> { //질문7에서 No 선택 = 결과 8
+                    intent.apply{
+                        putExtra("result", 8)
+                    }
+                    startActivity(intent)
                 }
             }
 
