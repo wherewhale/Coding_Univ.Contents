@@ -3,6 +3,7 @@ package com.example.helloandroid
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_test.*
 
 
@@ -16,19 +17,26 @@ class TestActivity : AppCompatActivity() {
 
         val intent = Intent(this, ResultActiviy::class.java)
 
+        val ani = AnimationUtils.loadAnimation(this, R.anim.fade_in)
 
         btn_yes.setOnClickListener {
             when (n) {
                 1 -> { //n이 1인 경우, 어디에도 거치지 않은 상황
                     textView2.text = "Yes"
+                    textView2.clearAnimation()
+                    textView2.startAnimation(ani)
                     n = 2
                 }
                 2 -> { //n이 2인 경우, Yes가 눌린 이후, Yes버튼이 또 눌린 상황
                     textView2.text = "Yes눌리고 Yes"
+                    textView2.clearAnimation()
+                    textView2.startAnimation(ani)
                     n = 4
                 }
                 3 -> { //n이 3인 경우, No가 눌린 이후, Yes버튼이 눌린 상황
                     textView2.text = "No눌리고 Yes"
+                    textView2.clearAnimation()
+                    textView2.startAnimation(ani)
                     n = 6
                 }
 
@@ -66,14 +74,20 @@ class TestActivity : AppCompatActivity() {
             when (n) {
                 1 -> { //n이 1인 경우, 어디에도 거치지 않은 상황
                     textView2.text = "No"
+                    textView2.clearAnimation()
+                    textView2.startAnimation(ani)
                     n = 3
                 }
                 2 -> { //n이 2인 경우, Yes가 눌린 이후, No버튼이 눌린 상황
                     textView2.text = "Yes눌리고 No"
+                    textView2.clearAnimation()
+                    textView2.startAnimation(ani)
                     n = 5
                 }
                 3 -> { //n이 3인 경우, No가 눌린 이후, No버튼이 또 눌린 상황
                     textView2.text = "No눌리고 No"
+                    textView2.clearAnimation()
+                    textView2.startAnimation(ani)
                     n = 7
                 }
                 //여기부터는 결과로 이어지는 과정
